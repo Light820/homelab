@@ -4,7 +4,7 @@ metadata:
   name: onepiece-collector-service
 spec:
   selector:
-    app: onepiece-collector-app
+    app: onepiece-collector
   ports:
     - port: 8080
       protocol: TCP
