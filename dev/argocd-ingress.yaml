@@ -1,8 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: multi-domain-ingress
-  namespace: myapp
+  name: argocd-ingress
+  namespace: argocd
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
     - host: argocd.local
@@ -15,13 +17,3 @@ spec:
                 name: argocd-server
                 port:
                   number: 80
-    - host: onepiece-collector-dev.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: onepiece-collector
-                port:
-                  number: 8080
