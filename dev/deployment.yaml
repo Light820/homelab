@@ -13,8 +13,8 @@ spec:
         app: myapp
     spec:
       containers:
-      - name: myapp
-        image: nanajanashia/argocd-app:1.2
+      - name: opcollector-middleware
+        image: light820/pokeapi:latest
         ports:
         - containerPort: 8080
 
