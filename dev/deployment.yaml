@@ -1,20 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: onepiece-collector
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: onepiece-collector
   replicas: 2
   template:
     metadata:
       labels:
-        app: myapp
+        app: onepiece-collector-app
     spec:
       containers:
-      - name: opcollector-middleware
-        image: light820/pokeapi:latest
-        ports:
-        - containerPort: 8080
-
+        - name: onepiece-collector-app
+          image: light820/pokeapi:latest
+          ports:
+            - containerPort: 8080
