@@ -17,3 +17,25 @@ spec:
           image: light820/pokeapi:latest
           ports:
             - containerPort: 8080
+          env:
+            - name: SPRING_H2_CONSOLE_ENABLED
+              value: "true"
+            - name: SPRING_H2_CONSOLE_PATH
+              value: "/h2-console"
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://postgres:5432/onepiece_db"
+            - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+              value: "org.postgresql.Driver"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "opcollector"
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+            - name: SPRING_JPA_DATABASE_PLATFORM
+              value: "org.hibernate.dialect.PostgreSQLDialect"
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: "update"
+            - name: SERVER_PORT
+              value: "8080"
