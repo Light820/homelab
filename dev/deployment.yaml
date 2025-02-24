@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: onepiece-collector-app
+        app: onepiece-collector
     spec:
       containers:
         - name: onepiece-collector-app
